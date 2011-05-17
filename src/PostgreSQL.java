@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.sql.Connection;
 
@@ -13,12 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 public class PostgreSQL {
 
-    /*private static final String host     = "brivendare.dyndns.biz";
-    private static final String port     = "3306";
-    private static final String database = "aluno";
-    private static final String user     = "root";
-    private static final String password = "harod";*/
-    
+       
     private static  String host;
     private static String port;
     private static String database;
