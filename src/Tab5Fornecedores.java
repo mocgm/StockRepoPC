@@ -9,7 +9,7 @@ public class Tab5Fornecedores
 
     //(nome, endereco, cep, bairro, cidade, cnpj, telefone, email)
 
-    static JLabel statusConexao;
+    static JLabel info;
 
     static JLabel entryFornecedor;
     static JLabel nomeFornecedor;
@@ -41,9 +41,9 @@ public class Tab5Fornecedores
         panel.setLayout(null);
 
 
-        MainPanel.statusConexao = new JLabel("Conectando ao banco de dados...");
-        MainPanel.statusConexao.setBounds(10, 5, 200, 30);
-        MainPanel.statusConexao.setOpaque(true);
+        info = new JLabel("Cadastro de fornecedores no banco de dados.");
+        info.setBounds(10, 5, 200, 30);
+        info.setOpaque(true);
 
         entryFornecedor = new JLabel("Cógido do fornecedor:");
         entryFornecedor.setBounds(10, 70, 200, 30);
@@ -143,7 +143,7 @@ public class Tab5Fornecedores
                 });*/
 
 
-        panel.add(MainPanel.statusConexao);
+        panel.add(info);
         panel.add(entryFornecedor);
         panel.add(nomeFornecedor);
         panel.add(endFornecedor);

@@ -6,12 +6,13 @@ import java.sql.SQLException;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-public class Tab7ConsultaProdutos
+public class Tab6ConsultaComponentes
 {
     JPanel panel;
     TableModel modelo;
     JTable tabela;
     JLabel info;
+    
     JButton consulta;
 
     //(nome, endereco, cep, bairro, cidade, cnpj, telefone, email)
@@ -19,16 +20,15 @@ public class Tab7ConsultaProdutos
         
 
     
-    public Tab7ConsultaProdutos()
+    public Tab6ConsultaComponentes()
     {
         panel = new JPanel(false);
         panel.setLayout(null);
 
 
-        info = new JLabel("Realize aqui uma consulta rápida aos produtos cadastrados no banco de dados.");
+        info = new JLabel("Realize aqui uma consulta rápida aos componentes cadastrados no banco de dados.");
         info.setBounds(10, 5, 200, 30);
-        
-        
+                
         modelo = new TableModel();
     
         // constrói a tabela
@@ -37,8 +37,12 @@ public class Tab7ConsultaProdutos
         
         //colunas
         modelo.addColumn("entry");
+        modelo.addColumn("id");
         modelo.addColumn("nome");
         modelo.addColumn("quantidade");
+        modelo.addColumn("precoCliente");
+        modelo.addColumn("precoRevendedor");
+        modelo.addColumn("fabricante");
         modelo.addColumn("descricao");
         
         consulta = new JButton("Consultar");
@@ -53,15 +57,26 @@ public class Tab7ConsultaProdutos
                         try
                         {
                             Statement stmt = PostgreSQL.conn.createStatement();
-                              String query = "SELECT * FROM stock.produto";
+                              String query = "SELECT * FROM stock.componente";
                               ResultSet rs = stmt.executeQuery(query);
 
                               while(rs.next()){ 
                                int entry = rs.getInt("entry");
+                               int id = rs.getInt("id");
                                 String nome = rs.getString("nome");
                                 int qtd = rs.getInt("quantidade");
+                                int precoC = rs.getInt("precocliente");
+                                int precoR = rs.getInt("precorevendedor");
+                                String fabricante = rs.getString("fabricante");
                                 String descricao = rs.getString("descricao");
-                                modelo.addRow(new Object[]{new Integer(entry), nome, new Integer(qtd), descricao});
+                                modelo.addRow(new Object[]{ new Integer(entry),
+                                                            new Integer(id),
+                                                            nome, 
+                                                            new Integer(qtd),
+                                                            new Integer(precoC),
+                                                            new Integer(precoR),
+                                                            fabricante,
+                                                            descricao});
                             
                         }
                         }
@@ -90,7 +105,6 @@ public class Tab7ConsultaProdutos
         panel.add(scrollPane);
         panel.add(consulta);
         panel.add(info);
-
 
 
     }

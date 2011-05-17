@@ -13,10 +13,7 @@ public class MainPanel extends JPanel
     static JFrame frame;
    
    
-	
-    public static JLabel statusConexao;
-    
-	
+	     	
    
     
     public MainPanel(){
@@ -28,6 +25,7 @@ public class MainPanel extends JPanel
         Tab3Clientes tb3 = new Tab3Clientes();
         Tab4Funcionarios tb4 = new Tab4Funcionarios();
         Tab5Fornecedores tb5 = new Tab5Fornecedores();
+        Tab6ConsultaComponentes tb6 = new Tab6ConsultaComponentes();
         Tab7ConsultaProdutos tb7 = new Tab7ConsultaProdutos();
         
         
@@ -36,6 +34,7 @@ public class MainPanel extends JPanel
 	tabbedPane.addTab("Cadastro de clientes", tb3.getPanel());
         tabbedPane.addTab("Cadastro de funcionários", tb4.getPanel());
         tabbedPane.addTab("Cadastro de fornecedores", tb5.getPanel());
+        tabbedPane.addTab("Consulta de componentes", tb6.getPanel());
         tabbedPane.addTab("Consulta de Produtos", tb7.getPanel());
    
         add(tabbedPane);

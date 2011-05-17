@@ -12,7 +12,8 @@ class Tab1Componentes extends JComponent
     JPanel panel;
 	//declaracao de labels e textfields da tab1
     //static JLabel statusConexao;
-    static JLabel entry;
+    //static JLabel entry;
+    static JLabel info;
     static JLabel idComponente;
     static JLabel nomeComponente;
     static JLabel qtdComponente;
@@ -22,7 +23,7 @@ class Tab1Componentes extends JComponent
     static JLabel descricaoComponente;
     
     
-    static JTextField entryTextField;
+    //static JTextField entryTextField;
     static JTextField idComponenteTextField;
     static JTextField nomeComponenteTextField;
     static JTextField qtdComponenteTextField;
@@ -38,12 +39,12 @@ class Tab1Componentes extends JComponent
         panel = new JPanel(false);
         panel.setLayout(null);                        
         
-        MainPanel.statusConexao = new JLabel("Conectando ao banco de dados...");
-        MainPanel.statusConexao.setBounds(10, 5, 200, 30);
-        MainPanel.statusConexao.setOpaque(true);
+        info = new JLabel("Cadastro de algum componente no banco de dados.");
+        info.setBounds(10, 5, 200, 30);
+        info.setOpaque(true);
         
-        entry = new JLabel("C�gido do componente:");
-        entry.setBounds(10, 100, 200, 30);
+        //entry = new JLabel("C�gido do componente:");
+        //ntry.setBounds(10, 100, 200, 30);
         
         idComponente = new JLabel("Id do componente:");
         idComponente.setBounds(10, 140, 200, 30);
@@ -54,22 +55,22 @@ class Tab1Componentes extends JComponent
         qtdComponente = new JLabel("Quantidade do componente:");
         qtdComponente.setBounds(10, 220, 200, 30);
         
-        precoComponenteCliente = new JLabel("Pre�o do componente (cliente):");
+        precoComponenteCliente = new JLabel("Preço do componente (cliente):");
         precoComponenteCliente.setBounds(10, 260, 200, 30);
         
-        precoComponenteRevendedor = new JLabel("Pre�o do componente (revendedor):");
+        precoComponenteRevendedor = new JLabel("Preço do componente (revendedor):");
         precoComponenteRevendedor.setBounds(10, 300, 200, 30);
         
         fabricanteComponente = new JLabel("Fabricante do componente:");
         fabricanteComponente.setBounds(10, 340, 200, 30);
         
-        descricaoComponente = new JLabel("Descricao do componente:");
+        descricaoComponente = new JLabel("Descrição do componente:");
         descricaoComponente.setBounds(10, 380, 200, 30);
         
         //text fields
         
-        entryTextField = new JTextField();
-        entryTextField.setBounds(220, 100, 200, 30);
+        //entryTextField = new JTextField();
+        //entryTextField.setBounds(220, 100, 200, 30);
         
         idComponenteTextField = new JTextField();
         idComponenteTextField.setBounds(220, 140, 200, 30);
@@ -100,18 +101,17 @@ class Tab1Componentes extends JComponent
                 {
                     public void actionPerformed(ActionEvent e)
                     {
-                        if (entryTextField.getText().isEmpty() || idComponenteTextField.getText().isEmpty())
+                        if (nomeComponenteTextField.getText().isEmpty() || fabricanteComponenteTextField.getText().isEmpty())
                         {
                             JOptionPane.showMessageDialog(null, 
-                              "Dados n�o podem ser nulos.");
+                              "Os campos `Nome` e `Fabricante` não podem ser nulos.");
                             
                         }
                         else
                         {
                             try
                             {
-                                MySQL.insereComponente(
-                                        stringToInt(entryTextField.getText()),
+                                PostgreSQL.insereComponente(                                        
                                         stringToInt(idComponenteTextField.getText()),
                                         nomeComponenteTextField.getText(),
                                         stringToInt(qtdComponenteTextField.getText()),
@@ -136,8 +136,8 @@ class Tab1Componentes extends JComponent
         
         
         
-        panel.add(MainPanel.statusConexao);
-        panel.add(entry);
+        panel.add(info);
+        //panel.add(entry);
         panel.add(idComponente);
         panel.add(nomeComponente);
         panel.add(qtdComponente);
@@ -146,7 +146,7 @@ class Tab1Componentes extends JComponent
         panel.add(fabricanteComponente);
         panel.add(descricaoComponente);
         
-        panel.add(entryTextField);
+        //panel.add(entryTextField);
         panel.add(idComponenteTextField);
         panel.add(nomeComponenteTextField);
         panel.add(qtdComponenteTextField);

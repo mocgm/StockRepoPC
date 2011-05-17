@@ -81,16 +81,19 @@ class LogonGUI
                                                 
                        try
                         {
-                            MySQL.connectToDB();
+                            PostgreSQL.connectToDB();
                             
                             frame1.setVisible(false);
                         }
                         catch (SQLException S)
                         {
+                        
+                            
                             frame1.setVisible(true);
                             MainPanel.frame.setVisible(false);
                             JOptionPane.showMessageDialog(null, 
-                              "Não foi possível estabelecer a conexão.");
+                              "Não foi possível estabelecer a conexão. Verifique se os dados inseridos estão corretos, ou se está faltando algum dado.",
+                              "Erro", JOptionPane.ERROR_MESSAGE);
                             //Main.statusConexao.setText("Erro ao conectar-se");
 
                             //Main.statusConexao.setBackground(Color.red);

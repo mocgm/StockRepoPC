@@ -6,7 +6,8 @@ import javax.swing.*;
 public class Tab3Clientes
 {
     JPanel panel;
-
+    
+    static JLabel info;
     static JLabel statusConexao;
     static JLabel entryCliente;
     static JLabel idCliente;
@@ -42,9 +43,9 @@ public class Tab3Clientes
         panel.setLayout(null);
 
 
-        MainPanel.statusConexao = new JLabel("Conectando ao banco de dados...");
-        MainPanel.statusConexao.setBounds(10, 5, 200, 30);
-        MainPanel.statusConexao.setOpaque(true);
+        info = new JLabel("Cadastro de clientes no banco de dados.");
+        info.setBounds(10, 5, 200, 30);
+        info.setOpaque(true);
 
         entryCliente = new JLabel("Cógido do cliente:");
         entryCliente.setBounds(10, 70, 200, 30);
@@ -163,7 +164,7 @@ public class Tab3Clientes
                 });*/
 
 
-        panel.add(MainPanel.statusConexao);
+        panel.add(info);
         panel.add(entryCliente);
         panel.add(idCliente);
         panel.add(nomeCliente);

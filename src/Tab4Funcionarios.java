@@ -9,8 +9,8 @@ public class Tab4Funcionarios
 
     //(idFuncionario, nome, endereco, cep, bairro, cidade, cpf, rg, telefone, email)
 
-    static JLabel statusConexao;
-
+    static JLabel info;    
+    
     static JLabel entryFuncionario;
     static JLabel idFuncionario;
     static JLabel nomeFuncionario;
@@ -43,9 +43,9 @@ public class Tab4Funcionarios
         panel.setLayout(null);
 
 
-        MainPanel.statusConexao = new JLabel("Conectando ao banco de dados...");
-        MainPanel.statusConexao.setBounds(10, 5, 200, 30);
-        MainPanel.statusConexao.setOpaque(true);
+        info = new JLabel("Cadastro de funcionários no banco de dados.");
+        info.setBounds(10, 5, 200, 30);
+        info.setOpaque(true);
 
         entryFuncionario = new JLabel("Cógido do funcionário:");
         entryFuncionario.setBounds(10, 70, 200, 30);
@@ -158,7 +158,7 @@ public class Tab4Funcionarios
                 });*/
 
 
-        panel.add(MainPanel.statusConexao);
+        panel.add(info);
         panel.add(entryFuncionario);
         panel.add(idFuncionario);
         panel.add(nomeFuncionario);

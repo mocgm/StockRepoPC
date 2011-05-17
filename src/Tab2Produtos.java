@@ -11,7 +11,7 @@ public class Tab2Produtos
     JPanel panel;
 
 	//declaracao de labels e textfields da tab2
-
+    static JLabel info;
     static JLabel entryProduto;
     static JLabel nomeProduto;
     static JLabel qtdProduto;
@@ -35,9 +35,9 @@ public class Tab2Produtos
         
 
 
-        MainPanel.statusConexao = new JLabel("Conectando ao banco de dados...");
-        MainPanel.statusConexao.setBounds(10, 5, 200, 30);
-        MainPanel.statusConexao.setOpaque(true);
+        info = new JLabel("Cadastro de algum produto no banco de dados.");
+        info.setBounds(10, 5, 200, 30);
+        info.setOpaque(true);
 
         entryProduto = new JLabel("Cógido do produto:");
         entryProduto.setBounds(10, 100, 200, 30);
@@ -84,7 +84,7 @@ public class Tab2Produtos
                         {
                             try
                             {
-                                MySQL.insereProduto(
+                                PostgreSQL.insereProduto(
                                         //stringToInt(entryProdutoTextField.getText()),
                                         nomeProdutoTextField.getText(),
                                         stringToInt(qtdProdutoTextField.getText()),
@@ -105,7 +105,7 @@ public class Tab2Produtos
 
 
         
-        panel.add(MainPanel.statusConexao);
+        panel.add(info);
         //panel.add(entryProduto);
         
         panel.add(nomeProduto);
