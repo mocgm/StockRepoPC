@@ -36,7 +36,7 @@ public class Tab2Produtos
 
 
         info = new JLabel("Cadastro de algum produto no banco de dados.");
-        info.setBounds(10, 5, 200, 30);
+        info.setBounds(10, 5, 300, 30);
         info.setOpaque(true);
 
         entryProduto = new JLabel("Cógido do produto:");

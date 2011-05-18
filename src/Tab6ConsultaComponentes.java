@@ -27,7 +27,7 @@ public class Tab6ConsultaComponentes
 
 
         info = new JLabel("Realize aqui uma consulta rápida aos componentes cadastrados no banco de dados.");
-        info.setBounds(10, 5, 200, 30);
+        info.setBounds(10, 5, 500, 30);
                 
         modelo = new TableModel();
     
@@ -46,7 +46,7 @@ public class Tab6ConsultaComponentes
         modelo.addColumn("descricao");
         
         consulta = new JButton("Consultar");
-        consulta.setBounds(600, 300, 100, 30);
+        consulta.setBounds(510, 5, 100, 30);
         consulta.addActionListener(new ActionListener()
                 {
                     public void actionPerformed(ActionEvent e)
@@ -100,7 +100,7 @@ public class Tab6ConsultaComponentes
         tabela.setPreferredScrollableViewportSize(new Dimension(350, 50));
         
         JScrollPane scrollPane = new JScrollPane(tabela);
-        scrollPane.setBounds(100, 100, 400, 400);
+        scrollPane.setBounds(50, 50, 650, 450);
         
         panel.add(scrollPane);
         panel.add(consulta);

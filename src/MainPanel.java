@@ -27,6 +27,9 @@ public class MainPanel extends JPanel
         Tab5Fornecedores tb5 = new Tab5Fornecedores();
         Tab6ConsultaComponentes tb6 = new Tab6ConsultaComponentes();
         Tab7ConsultaProdutos tb7 = new Tab7ConsultaProdutos();
+        Tab8ConsultaCliente tb8 = new Tab8ConsultaCliente();
+        Tab9ConsultaFuncionario tb9 = new Tab9ConsultaFuncionario();
+        Tab10ConsultaFornecedor tb10 = new Tab10ConsultaFornecedor();
         
         
         tabbedPane.addTab("Cadastro de componentes", tb1.getPanel());
@@ -35,7 +38,10 @@ public class MainPanel extends JPanel
         tabbedPane.addTab("Cadastro de funcionários", tb4.getPanel());
         tabbedPane.addTab("Cadastro de fornecedores", tb5.getPanel());
         tabbedPane.addTab("Consulta de componentes", tb6.getPanel());
-        tabbedPane.addTab("Consulta de Produtos", tb7.getPanel());
+        tabbedPane.addTab("Consulta de produtos", tb7.getPanel());
+        tabbedPane.addTab("Consulta de clientes", tb8.getPanel());
+        tabbedPane.addTab("Consulta de funcionários", tb9.getPanel());
+        tabbedPane.addTab("Consulta de fornecedores", tb10.getPanel());
    
         add(tabbedPane);
         

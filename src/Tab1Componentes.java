@@ -40,7 +40,7 @@ class Tab1Componentes extends JComponent
         panel.setLayout(null);                        
         
         info = new JLabel("Cadastro de algum componente no banco de dados.");
-        info.setBounds(10, 5, 200, 30);
+        info.setBounds(10, 5, 300, 30);
         info.setOpaque(true);
         
         //entry = new JLabel("C�gido do componente:");

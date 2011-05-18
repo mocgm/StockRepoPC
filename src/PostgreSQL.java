@@ -120,23 +120,65 @@ public class PostgreSQL {
 	
 	}
 	
-	static void insereCliente(int entry, int id, String nome, String end, String bairro, String cidade, int cep, int cpf, int rg, int cnpj, int tel, String email) throws SQLException
+	static void insereCliente(int id, String nome, String end, String bairro, String cidade, String cep, String cpf, String rg, String cnpj, String tel, String email) throws SQLException
 	{
-		PreparedStatement ps = conn.prepareStatement("INSERT INTO clientes (entry, idCliente, nome, endereco, bairro, cidade, cep, cpf, rg, cnpj, telefone, email)"
-			+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		PreparedStatement ps = conn.prepareStatement("INSERT INTO stock.cliente (id, nome, endereco, bairro, cidade, cep, cpf, rg, cnpj, telefone, email)"
+			+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			
-		ps.setInt(1, entry);
-		ps.setInt(2, id);
-		ps.setString(3, nome);
-		ps.setString(4, end);
-		ps.setString(5, bairro);
-		ps.setString(6, cidade);
-		ps.setInt(7, cep);
-		ps.setInt(8, cpf);
-		ps.setInt(9, rg);
-		ps.setInt(10, cnpj);
-		ps.setInt(11, tel);
-		ps.setString(12, email);
+		
+		ps.setInt(1, id);
+		ps.setString(2, nome);
+		ps.setString(3, end);
+		ps.setString(4, bairro);
+		ps.setString(5, cidade);
+		ps.setString(6, cep);
+		ps.setString(7, cpf);
+		ps.setString(8, rg);
+		ps.setString(9, cnpj);
+		ps.setString(10, tel);
+		ps.setString(11, email);
+		ps.executeUpdate();
+	
+	
+	
+	}
+        
+        static void insereFuncionario(int id, String nome, String end, String bairro, String cidade, String cep, String cpf, String rg, String tel, String email) throws SQLException
+	{
+		PreparedStatement ps = conn.prepareStatement("INSERT INTO stock.funcionario (id, nome, endereco, bairro, cidade, cep, cpf, rg, telefone, email)"
+			+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			
+		
+		ps.setInt(1, id);
+		ps.setString(2, nome);
+		ps.setString(3, end);
+		ps.setString(4, bairro);
+		ps.setString(5, cidade);
+		ps.setString(6, cep);
+		ps.setString(7, cpf);
+		ps.setString(8, rg);		
+		ps.setString(9, tel);
+		ps.setString(10, email);
+		ps.executeUpdate();
+	
+	
+	
+	}
+        
+        static void insereFornecedor(String nome, String end, String bairro, String cidade, String cep, String cnpj, String tel, String email) throws SQLException
+	{
+		PreparedStatement ps = conn.prepareStatement("INSERT INTO stock.fornecedor (nome, endereco, bairro, cidade, cep, cnpj, telefone, email)"
+			+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+			
+				
+		ps.setString(1, nome);
+		ps.setString(2, end);
+		ps.setString(3, bairro);
+		ps.setString(4, cidade);
+		ps.setString(5, cep);
+		ps.setString(6, cnpj);
+		ps.setString(7, tel);
+		ps.setString(8, email);
 		ps.executeUpdate();
 	
 	

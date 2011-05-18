@@ -11,7 +11,7 @@ public class Tab5Fornecedores
 
     static JLabel info;
 
-    static JLabel entryFornecedor;
+    
     static JLabel nomeFornecedor;
     static JLabel endFornecedor;
     static JLabel cepFornecedor;
@@ -21,8 +21,7 @@ public class Tab5Fornecedores
     static JLabel telFornecedor;
     static JLabel emailFornecedor;
     
-
-    static JTextField entryFornecedorTextField;
+    
     static JTextField nomeFornecedorTextField;
     static JTextField endFornecedorTextField;
     static JTextField cepFornecedorTextField;
@@ -44,10 +43,7 @@ public class Tab5Fornecedores
         info = new JLabel("Cadastro de fornecedores no banco de dados.");
         info.setBounds(10, 5, 200, 30);
         info.setOpaque(true);
-
-        entryFornecedor = new JLabel("Cógido do fornecedor:");
-        entryFornecedor.setBounds(10, 70, 200, 30);
-
+        
         nomeFornecedor = new JLabel("Nome do fornecedor:");
         nomeFornecedor.setBounds(10, 110, 200, 30);
 
@@ -73,9 +69,7 @@ public class Tab5Fornecedores
         emailFornecedor.setBounds(10, 390, 200, 30);
 
         //text fields
-
-        entryFornecedorTextField = new JTextField();
-        entryFornecedorTextField.setBounds(220, 70, 200, 30);
+        
 
         nomeFornecedorTextField = new JTextField();
         nomeFornecedorTextField.setBounds(220, 110, 200, 30);
@@ -104,11 +98,18 @@ public class Tab5Fornecedores
         
         insert5 = new JButton("Inserir dados");
         insert5.setBounds(600, 150, 150, 60);
-        /*insert3.addActionListener(new ActionListener()
+        insert5.addActionListener(new ActionListener()
                 {
                     public void actionPerformed(ActionEvent e)
                     {
-                        if (entryTextField.getText().isEmpty() || idComponenteTextField.getText().isEmpty())
+                        if (    nomeFornecedorTextField.getText().isEmpty() ||
+                                endFornecedorTextField.getText().isEmpty() ||
+                                cepFornecedorTextField.getText().isEmpty() ||
+                                bairroFornecedorTextField.getText().isEmpty() ||
+                                cidadeFornecedorTextField.getText().isEmpty() ||
+                                cnpjFornecedorTextField.getText().isEmpty() ||
+                                telFornecedorTextField.getText().isEmpty() ||
+                                emailFornecedorTextField.getText().isEmpty())
                         {
                             JOptionPane.showMessageDialog(null,
                               "Dados não podem ser nulos.");
@@ -118,15 +119,16 @@ public class Tab5Fornecedores
                         {
                             try
                             {
-                                MySQL.insereComponente(
-                                        stringToInt(entryTextField.getText()),
-                                        stringToInt(idComponenteTextField.getText()),
-                                        nomeComponenteTextField.getText(),
-                                        stringToInt(qtdComponenteTextField.getText()),
-                                        stringToInt(precoComponenteClienteTextField.getText()),
-                                        stringToInt(precoComponenteRevendedorTextField.getText()),
-                                        fabricanteComponenteTextField.getText(),
-                                        descricaoComponenteTextField.getText());
+                                PostgreSQL.insereFornecedor(
+                                        nomeFornecedorTextField.getText(),
+                                        endFornecedorTextField.getText(),
+                                        bairroFornecedorTextField.getText(),
+                                        cidadeFornecedorTextField.getText(),
+                                        cepFornecedorTextField.getText(),
+                                        cnpjFornecedorTextField.getText(),
+                                        telFornecedorTextField.getText(),
+                                        emailFornecedorTextField.getText());
+                                        
 
                                 JOptionPane.showMessageDialog(null,
                                   "Dados inseridos com sucesso!");
@@ -140,11 +142,10 @@ public class Tab5Fornecedores
 
                     }
 
-                });*/
+                });
 
 
-        panel.add(info);
-        panel.add(entryFornecedor);
+        panel.add(info);        
         panel.add(nomeFornecedor);
         panel.add(endFornecedor);
         panel.add(cepFornecedor);
@@ -153,8 +154,7 @@ public class Tab5Fornecedores
         panel.add(cnpjFornecedor);
         panel.add(telFornecedor);
         panel.add(emailFornecedor);
-        
-        panel.add(entryFornecedorTextField);
+                
         panel.add(nomeFornecedorTextField);
         panel.add(endFornecedorTextField);
         panel.add(cepFornecedorTextField);
